@@ -3,12 +3,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 // 简写：
-// createApp(App).mount('#app')
+createApp(App).mount('#app')
 
 // 分析：
 
 //创建应用实例对象--app (类似于之前Vue2中的vm,但是app比vm更“轻”)
-const app =createApp(App)
+// const app =createApp(App)
 // 挂载
-app.mount('#app')
+// app.mount('#app')
 
