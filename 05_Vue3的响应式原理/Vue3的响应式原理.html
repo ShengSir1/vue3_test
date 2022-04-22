@@ -15,7 +15,7 @@
 			}
 
 			
-			//#region 模拟Vue2中实现响应式
+			//#region 1.模拟Vue2中实现响应式
 			/* let p = {}
 			Object.defineProperty(p,'name',{
 				configurable:true,
@@ -39,8 +39,8 @@
 			//#endregion
 			
 			
-			//#region 模拟Vue3中实现响应式 Proxy --代理对象 Reflect --反映对象
-			const p = new Proxy(person,{
+			//#region 2.模拟Vue3中实现响应式 Proxy --代理对象 Reflect --反映对象
+			// const p = new Proxy(person,{
 				//有人读取p的某个属性时调用
 			// 	get(target,propName){
 			// 		console.log(`有人读取了p身上的${propName}属性`)
@@ -59,8 +59,8 @@
 			// })
 			//#endregion
 
-      let obj ={a:1,b:2}
-			//#region 通过Object.defineProperty去操作
+      // let obj ={a:1,b:2}
+			//#region 3.通过Object.defineProperty去操作
 
 			// 	try {
 			// 		Object.defineProperty(obj,'c',{
@@ -79,7 +79,7 @@
 
 			//#endregion
 
-			//#region 通过Reflect.defineProperty去操作
+			//#region 4.通过Reflect.defineProperty去操作
 
 			// const x1=Reflect.defineProperty(obj,'c',{
 			// 	get(){
