@@ -5,18 +5,13 @@
 	<h2>姓名：{{name}}</h2>
 	<h2>年龄：{{age}}</h2>
 	<h2>薪资：{{job.j1.salary}}K</h2>
-	<h2 v-show="person.car">坐骑：{{person.car}}</h2>
 	<button @click="name+='~'">修改姓名</button>
 	<button @click="age++">增长年龄</button>
 	<button @click="job.j1.salary++">涨薪</button>
-	<button @click="showRawPerson">输出最原始的person</button>
-	<button @click="addCar">给人添加一辆坐骑</button>
-	<button @click="person.car.name+='!'">换车名</button>
-	<button @click="changePrice">换价格</button>
 </template>
 
 <script>
-	import {ref,reactive,toRefs,toRaw,markRaw} from 'vue'
+	import {ref,reactive,toRefs,readonly,shallowReadonly} from 'vue'
 	export default {
 		name: 'Demo',
 		setup(){
@@ -31,30 +26,17 @@
 					}
 				}
 			})
+			// person = readonly(person)
+			
+			// person = shallowReadonly(person)
 
-			function showRawPerson(){
-				const p = toRaw(person)
-				console.log(p);
-			}
-			function addCar(){
-				let car = {
-					name:'奔驰',
-					price:40
-				}
-				person.car = markRaw(car)
-			}
-			function changePrice(){
-				person.car.price++
-				console.log(person.car.price);
-			}
+			// sum = readonly(sum)
+			// sum = shallowReadonly(sum) //sum没有层级 没必要用这个API
 
 			//返回一个对象（常用）
 			return {
 				sum,
 				person,
-				showRawPerson,
-				addCar,
-				changePrice,
 				// name:toRef(person,'name'),
 				// age:toRef(person,'age'),
 				// salary:toRef(person.job.j1,'salary'),
